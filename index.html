@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+  <meta charset="UTF-8">
+  <title>Invoice with GST</title>
+  
+<meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  
+      <link rel="stylesheet" href="css/style.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+      <style type="text/css">
+        table {
+    counter-reset: tableCount;     
+}
+.counterCell:before {              
+    content: counter(tableCount); 
+    counter-increment: tableCount; 
+}
+      </style>
+
+  
+</head>
+
+
+
+ 
+
+
+<body id="form">
+ 
+
+  <form>
+    <div style="padding-top: 30px;padding-bottom: 20px;text-align: center">
+      
+
+        <div style="width: 100%;display: inline; padding-top: 30px;padding-bottom: 30px;float: left">
+          <span style="font-size: 45px; font-weight: bold; color: #700000;display: inline">KAVYA FAB</span><br>
+          <span style="font-size: 16px; display: inline;padding-bottom: 30px">We are manufacturer and wholesaler of saree, designer dress material, lehenga-choli, blouse, fancy kurti & skirt with best product & good quality. </span><br><br>
+          <span style="font-size: 18px;display: inline;margin-top: 20px"><!-- <i class="fa fa-phone" style="font-size:24px"></i> -->7048785381 &emsp; <!-- <i class="fa fa-phone" style="font-size:24px"></i> -->7990882907 &emsp;<!--  <i style="font-size:24px" class="fa">&#xf095;</i> --></span>
+
+          </div>
+        <!-- <h2 style="font-size: 40px;background-color: red;color: white">Fire Bottles</h2> -->
+       <!--  <div style="width: 17%;display: inline;float: right;">
+         
+          
+        </div> -->
+
+      
+     
+    </div>
+  <!-- <p class="text-center mah_in">|| श्री ||</p>  -->
+    <article style="margin: 0" class="invoicebody">
+      <div class="left_info">
+        <div>
+        <label style="">Name &emsp;      </label>
+        <input style="width: 340px" type="text" class="clientDetails" id="company_name"  >
+        </div><br>
+        <div>
+        <label style="">Address  &emsp;    </label>
+        <input style="width: 325px" type="text" class="clientDetails" id="customer_name"></div><br>
+        <div>
+        <label style="">GSTIN No  &emsp;    </label>
+        <input style="width: 300px" type="text" class="clientDetails" id="occupation" ><br>
+        </div>
+        <div style="margin-top: 20px">
+        <label style="">Contact  &emsp;    </label>
+        <input style="width: 330px" type="text" class="clientDetails" id="afm"  ></div><br>
+       <!--  <input type="text" class="clientDetails" id="doy"           placeholder="Client Email"> -->
+    </div>
+      <table class="meta" id="top_data_table">
+         <tbody>
+          <tr class="" id="invoice_number_row">
+            <th class="bold"><span class="invoice" id="invoice">Invoice&nbsp;</span></th> 
+            <td><span contenteditable="true">000</span></td>
+          </tr>
+
+          <tr class="" id="invoice_number_row">
+            <th class="bold"><span class="invoice" id="invoice">GSTIN No&nbsp;</span></th> 
+            <td>24AQCPL3543M1ZS</td>
+          </tr>
+          
+
+          <tr id="daterow">
+            <th class="bold"><span class="date" id="date">Date</span></th>
+            <td><span contenteditable=""><input type="date" id="todayDate"></span></td>
+          </tr>
+
+          <tr class="" id="total_block">
+            <th class="bold"><span class="amount" id="amount">Ammount</span></th>
+            <td><span id="prefix">&#8377;</span><span></span></td>
+          </tr>
+
+        </tbody>
+      </table>
+  <div class="min_height">
+      <table class="inventory">
+        <thead>
+          <tr>
+            <th class="bold" style="width: 70px">
+              <span class="item" id="item">No</span>
+            </th>
+            <th class="bold" style="width: 230px;">
+              <span class="description" id="description">Description</span>
+            </th>
+             <th class="bold">
+              <span class="rate" id="rate">Rate</span>
+            </th>
+             <th class="bold">
+              <span class="quantity" id="quantity">Quantity</span>
+            </th>
+           
+           
+            <th class="bold">
+              <span class="price" id="price">Amount</span>
+            </th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr>
+            <td class="counterCell">
+              <a class="cut" title="Remove Item">-</a>
+              <span contenteditable></span>
+            </td>
+            <td>
+              <span contenteditable></span>
+              </td>
+              <td>
+              <span data-prefix>&#8377;</span>
+              <span contenteditable>0</span>
+            </td>
+              <td>
+              <span contenteditable>1</span>
+            </td>
+            
+            
+            <td>
+              <span data-prefix>&#8377;</span><span>0.00</span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <a class="add noprint" title="Add Item">+</a>
+      <div class="left_btn">
+          <button class="mah_btn" onclick="myprint()">Print</button>
+          <button class="mah_btn" onClick="window.location.reload()">Reset</button>
+      </div>
+      <div class="right_tax">
+      <table class="balance" id="balance">
+        <tbody>
+
+          <tr>
+            <th class="bold">
+              <span class="subtotal" id="subtotal">Subtotal</span>
+            </th>
+            <td>
+              <span>&#8377;</span><span>0.00</span>
+            </td>
+          </tr>
+
+          <tr>
+            <th class="bold">
+              <span class="tax" id="tax" contenteditable="">Include GST&nbsp;</span>
+              <span contenteditable="">05</span>%
+            </th>
+            <td>
+              <span>&#8377;</span><span>0.00</span>
+            </td>
+          </tr>
+
+          <tr>
+            <th class="bold">
+              <span class="total" id="total">Total</span>
+            </th>
+            <td>
+              <span>&#8377; </span><span>0.00</span>
+            </td>
+          </tr>
+
+        </tbody>
+      </table> 
+      </div>     
+  </div>
+    </article>
+  </form>
+
+<!-- <div class="Signature" style="margin-top: -100px">
+  <ul>
+    <li>Client Signature</li>
+    <li>Owner Signature</li>
+  </ul>
+</div> -->
+
+
+<div class="marathi info" style="margin-top: -20px">
+  
+    <p class="red" style="font-weight:700">Terms & Conditions :</p>
+    <p>1) please make video while opening package. without that product wuill not be taken back. </p>
+    <p>2) You make full advance payment before dispatch. </p>
+    <p>3) Return policy available only for wrong product or defective piece. </p>
+    <p>4) Shipping charges will be extra.</p>
+    <p>5) Payment mode: bank account,gpay,phonepay,paytm,indiamart </p>
+    <p>6) You will have to pay GST 5% if you want GST bill. (not mandatory)</p>
+</div>
+<div>
+  <p>Thank you for your love and support.</p>
+</div>
+
+ <!--  <button id="cmd">Download</button>
+</div>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> -->
+
+<!-- <script type="text/javascript">
+  $(function() {
+  var doc = new jsPDF();
+  var specialElementHandlers = {
+    '#editor': function(element, renderer) {
+      return true;
+    }
+  };
+  $('#cmd').click(function() {
+    doc.fromHTML($('#form').html(), 15, 15, {
+      'width': 170,
+      'elementHandlers': specialElementHandlers
+    });
+    doc.save('sample-file.pdf');
+  });
+});
+</script> -->
+
+
+
+
+
+
+
+<script type="text/javascript">
+    let todaydate = new Date().toISOString().substr(0, 10);
+document.querySelector("#todayDate").value = todaydate;
+  </script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+
+
+  
+
+    <script  src="js/index.js"></script>
+
+
+
+
+</body>
+
+</html>
